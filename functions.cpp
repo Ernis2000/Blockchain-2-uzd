@@ -39,7 +39,7 @@ void generateTransactions(std::vector<transaction>& Transactions, const std::vec
 void mining(Blockchain& block_chain, std::vector<Block>& Bblock)
 {
     std::string hash_difficulty;
-    std::string zero = std::to_string(0);
+    std::string zero = std::to_string(1);
     for (int i = 0; i < Bblock.size(); i++)
     {
         if (i == 0)
@@ -61,6 +61,7 @@ void mining(Blockchain& block_chain, std::vector<Block>& Bblock)
         } while (Bblock[i].currentHash.substr(0, Bblock[i].difficulty_target) != hash_difficulty);
         block_chain.addblock(Bblock[i]);
         std::cout << "Block nr:" << i << "\n" << Bblock[i].currentHash << std::endl;
+        hash_difficulty.clear();
     }
         
 }
