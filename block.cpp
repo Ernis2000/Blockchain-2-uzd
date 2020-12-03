@@ -13,7 +13,7 @@ void Block::set_transactions(const std::vector<transaction>& transactions)
 	{
 		transactionIDs.push_back(transaction.id);
 	}
-	MerkleRootHash = MerkleTree(transactionIDs);
+	MerkleRootHash = create_merkle(transactionIDs);
 }
 
 std::vector<transaction> Block::getTransactions() const
